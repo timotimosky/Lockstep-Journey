@@ -19,6 +19,16 @@ public class GameState
         Players[2] = new PlayerState();
     }
 
+    public GameState(GameState mGameState)
+    {
+        Players[1] = new PlayerState();
+        Players[2] = new PlayerState();
+        // 初始化两个玩家
+        Players[1].Position = mGameState.Players[1].Position;
+        Players[2].Position = mGameState.Players[2].Position;
+    }
+
+
     private const float Speed = 5.0f;
 
     public void ApplyInput(int playerID, PlayerInput input)
@@ -32,6 +42,6 @@ public class GameState
 
     public override string ToString()
     {
-        return $"A Pos: {Players[1]:F2}, B Pos: {Players[2]:F2}";
+        return $"A Pos: {Players[1].Position:F2}, B Pos: {Players[2].Position:F2}";
     }
 }

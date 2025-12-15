@@ -189,11 +189,7 @@ public class FrameSyncManager : MonoBehaviour
     private GameState CloneState(GameState original)
     {
         // 深度克隆是关键！确保回滚时不会修改历史状态。
-        GameState clone = new GameState
-        {
-            Players[1] = original.PlayerAPosition,
-            PlayerBPosition = original.PlayerBPosition
-        };
+        GameState clone = new GameState(original);
         return clone;
     }
 }
